@@ -20,6 +20,14 @@ class AssetsIcon {
   static String iconBedroom = 'assets/icons/icon_bedroom.png';
   static String iconCupboard = 'assets/icons/icon_cupboard.png';
   static String iconKitchen = 'assets/icons/icon_kitchen.png';
+  static String iconHome = 'assets/icons/icon_home_active.png';
+  static String iconMessage = 'assets/icons/icon_msg_active.png';
+  static String iconCard = 'assets/icons/icon_card_active.png';
+  static String iconFavorite = 'assets/icons/icon_fav_active.png';
+  static String iconHomeInactive = 'assets/icons/icon_home_inactive.png';
+  static String iconMessageInactive = 'assets/icons/icon_msg_inactive.png';
+  static String iconCardInactive = 'assets/icons/icon_card_inactive.png';
+  static String iconFavoriteInactive = 'assets/icons/icon_fav_inactive.png';
 }
 
 class AssetsButton {

@@ -5,7 +5,7 @@ class RoomCard extends StatelessWidget {
   final int? id;
   final String? name;
   final String? imageUrl;
-  final double? price;
+  final int? price;
   final String? city;
   final String? country;
   final String? rating;

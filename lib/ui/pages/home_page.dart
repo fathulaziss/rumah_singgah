@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rumah_singgah/shared/shared.dart';
+import 'package:rumah_singgah/ui/widgets/bottom_navbar_item.dart';
 import 'package:rumah_singgah/ui/widgets/city_card.dart';
 import 'package:rumah_singgah/ui/widgets/room_card.dart';
 import 'package:rumah_singgah/ui/widgets/tips_card.dart';
@@ -12,16 +13,18 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         bottom: false,
-        child: Padding(
-          padding: EdgeInsets.symmetric(vertical: defaultMargin),
-          child: ListView(
-            children: [
-              _buildHeader(context),
-              _buildPopularCities(context),
-              _buildRecomendedRoom(context),
-              _buildTipsAndGuidance(context),
-            ],
-          ),
+        child: Stack(
+          children: [
+            ListView(
+              children: [
+                _buildHeader(context),
+                _buildPopularCities(context),
+                _buildRecomendedRoom(context),
+                _buildTipsAndGuidance(context),
+              ],
+            ),
+            _buildBottomNavbar(context),
+          ],
         ),
       ),
     );
@@ -33,6 +36,7 @@ class HomePage extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: defaultMargin),
           Text(
             "Explore Now",
             style: blackTextStyle.copyWith(fontSize: 24),
@@ -159,8 +163,47 @@ class HomePage extends StatelessWidget {
             date: 'updated 11 Dec',
             imageUrl: AssetsImage.imageTips2,
           ),
-          SizedBox(height: 50)
+          SizedBox(height: 50 + defaultMargin)
         ],
+      ),
+    );
+  }
+
+  Widget _buildBottomNavbar(BuildContext context) {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 25),
+        child: Container(
+          height: 65,
+          width: double.infinity,
+          margin: EdgeInsets.symmetric(horizontal: defaultMargin),
+          decoration: BoxDecoration(
+            color: Color(0xFFF6F7F8),
+            borderRadius: BorderRadius.circular(23),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              BottomNavbarItem(
+                imageUrl: AssetsIcon.iconHome,
+                isActive: true,
+              ),
+              BottomNavbarItem(
+                imageUrl: AssetsIcon.iconMessageInactive,
+                isActive: false,
+              ),
+              BottomNavbarItem(
+                imageUrl: AssetsIcon.iconCardInactive,
+                isActive: false,
+              ),
+              BottomNavbarItem(
+                imageUrl: AssetsIcon.iconFavoriteInactive,
+                isActive: false,
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
