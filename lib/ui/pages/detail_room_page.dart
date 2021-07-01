@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:rumah_singgah/shared/shared.dart';
-import 'package:rumah_singgah/ui/pages/home_page.dart';
 import 'package:rumah_singgah/ui/widgets/facilities_item.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailRoomPage extends StatelessWidget {
   const DetailRoomPage({Key? key}) : super(key: key);
+
+  launchURL(String url) async {
+    if (await canLaunch(url)) {
+      launch(url);
+    } else {
+      throw (url);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -240,7 +248,11 @@ class DetailRoomPage extends StatelessWidget {
                 'Jln. Jendral Sudirman No.24\nJakarta',
                 style: greyTextStyle.copyWith(fontSize: 14),
               ),
-              Image.asset(AssetsButton.buttonMap, width: 40)
+              InkWell(
+                  onTap: () {
+                    launchURL('https:goo.gl/maps/SyZx2yjWB1yR6AeH8');
+                  },
+                  child: Image.asset(AssetsButton.buttonMap, width: 40))
             ],
           ),
         ),
@@ -258,8 +270,7 @@ class DetailRoomPage extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: defaultMargin),
           child: ElevatedButton(
             onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => HomePage()));
+              launchURL('https://wa.me/6281330331236');
             },
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(purpleColor),
