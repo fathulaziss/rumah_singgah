@@ -163,7 +163,7 @@ class HomePage extends StatelessWidget {
             date: 'updated 11 Dec',
             imageUrl: AssetsImage.imageTips2,
           ),
-          SizedBox(height: 50 + defaultMargin)
+          SizedBox(height: 100)
         ],
       ),
     );
