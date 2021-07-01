@@ -13,6 +13,9 @@ class AssetsImage {
   static String imageDetailRoom1 = 'assets/images/detail_room1.png';
   static String imageDetailRoom2 = 'assets/images/detail_room2.png';
   static String imageDetailRoom3 = 'assets/images/detail_room3.png';
+  static String imageBannerDetail1 = 'assets/images/banner_detail1.png';
+  static String imageBannerDetail2 = 'assets/images/banner_detail2.png';
+  static String imageBannerDetail3 = 'assets/images/banner_detail3.png';
 }
 
 class AssetsIcon {
@@ -33,5 +36,5 @@ class AssetsIcon {
 class AssetsButton {
   static String buttonBack = 'assets/buttons/btn_back.png';
   static String buttonMap = 'assets/buttons/btn_map.png';
-  static String buttonWishlist = 'assets/buttons/btn_whislist.png';
+  static String buttonWishlist = 'assets/buttons/btn_wishlist.png';
 }
