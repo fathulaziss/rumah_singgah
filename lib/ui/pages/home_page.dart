@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:provider/provider.dart';
+import 'package:rumah_singgah/providers/room_provider.dart';
 import 'package:rumah_singgah/shared/shared.dart';
 import 'package:rumah_singgah/ui/widgets/bottom_navbar_item.dart';
 import 'package:rumah_singgah/ui/widgets/city_card.dart';
@@ -11,21 +14,19 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        bottom: false,
-        child: Stack(
-          children: [
-            ListView(
-              children: [
-                _buildHeader(context),
-                _buildPopularCities(context),
-                _buildRecomendedRoom(context),
-                _buildTipsAndGuidance(context),
-              ],
-            ),
-            _buildBottomNavbar(context),
-          ],
-        ),
+      backgroundColor: whiteColor,
+      body: Stack(
+        children: [
+          ListView(
+            children: [
+              _buildHeader(context),
+              _buildPopularCities(context),
+              _buildRecomendedRoom(context),
+              _buildTipsAndGuidance(context),
+            ],
+          ),
+          _buildBottomNavbar(context),
+        ],
       ),
     );
   }
@@ -100,42 +101,48 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildRecomendedRoom(BuildContext context) {
+    var roomProvider = Provider.of<RoomProvider>(context);
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: defaultMargin),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Recommended Room',
-              style: regulerTextStyle.copyWith(fontSize: 16)),
+          Text(
+            'Recommended Room',
+            style: blackTextStyle.copyWith(fontSize: 16),
+          ),
           SizedBox(height: 16),
-          RoomCard(
-            id: 1,
-            name: 'Kuretakeso Hott',
-            city: 'Bandung',
-            country: 'Indonesia',
-            rating: '4',
-            price: 52,
-            imageUrl: AssetsImage.imageRoom1,
-          ),
-          SizedBox(height: 30),
-          RoomCard(
-            id: 2,
-            name: 'Roemah Nenek',
-            city: 'Surabaya',
-            country: 'Indonesia',
-            rating: '5',
-            price: 20,
-            imageUrl: AssetsImage.imageRoom2,
-          ),
-          SizedBox(height: 30),
-          RoomCard(
-            id: 3,
-            name: 'Darrling How',
-            city: 'Jakarta',
-            country: 'Indonesia',
-            rating: '3',
-            price: 11,
-            imageUrl: AssetsImage.imageRoom3,
+          FutureBuilder(
+            future: roomProvider.getRecommendedRoom(),
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                List<Room>? data = snapshot.data as List<Room>?;
+                int index = 0;
+                return Column(
+                  children: data!.map((e) {
+                    index++;
+                    return Padding(
+                      padding: EdgeInsets.only(top: index == 1 ? 0 : 30),
+                      child: RoomCard(
+                        id: e.id,
+                        city: e.city,
+                        country: e.country,
+                        imageUrl: e.imageUrl,
+                        name: e.name,
+                        price: e.price,
+                        rating: e.rating,
+                      ),
+                    );
+                  }).toList(),
+                );
+              }
+              return Center(
+                child: SpinKitFadingCircle(
+                  size: 45,
+                  color: purpleColor,
+                ),
+              );
+            },
           ),
           SizedBox(height: 30),
         ],

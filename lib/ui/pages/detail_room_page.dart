@@ -18,15 +18,12 @@ class DetailRoomPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: whiteColor,
-      body: SafeArea(
-        bottom: false,
-        child: Stack(
-          children: [
-            _buildHeader(context),
-            _buildContent(context),
-            _buildAppBar(context),
-          ],
-        ),
+      body: Stack(
+        children: [
+          _buildHeader(context),
+          _buildContent(context),
+          _buildAppBar(context),
+        ],
       ),
     );
   }
@@ -47,7 +44,7 @@ class DetailRoomPage extends StatelessWidget {
   Widget _buildAppBar(BuildContext context) {
     return Padding(
       padding:
-          const EdgeInsets.symmetric(horizontal: defaultMargin, vertical: 30),
+          const EdgeInsets.symmetric(horizontal: defaultMargin, vertical: 45),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -66,7 +63,7 @@ class DetailRoomPage extends StatelessWidget {
     return ListView(
       children: [
         Container(
-          margin: EdgeInsets.only(top: 328),
+          margin: EdgeInsets.only(top: 280),
           width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.vertical(top: Radius.circular(20)),

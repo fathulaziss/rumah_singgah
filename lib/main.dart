@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:rumah_singgah/providers/room_provider.dart';
 import 'package:rumah_singgah/ui/pages/splash_page.dart';
 
 void main() {
@@ -10,8 +12,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SplashPage(),
+    return ChangeNotifierProvider(
+      create: (context) => RoomProvider(),
+      child: MaterialApp(
+        home: SplashPage(),
+      ),
     );
   }
 }

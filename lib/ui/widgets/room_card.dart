@@ -9,7 +9,7 @@ class RoomCard extends StatelessWidget {
   final int? price;
   final String? city;
   final String? country;
-  final String? rating;
+  final int? rating;
 
   const RoomCard({
     Key? key,
@@ -40,7 +40,12 @@ class RoomCard extends StatelessWidget {
               height: 110,
               child: Stack(
                 children: [
-                  Image.asset(imageUrl ?? ''),
+                  Image.network(
+                    imageUrl ?? '',
+                    width: 130,
+                    height: 110,
+                    fit: BoxFit.cover,
+                  ),
                   Align(
                     alignment: Alignment.topRight,
                     child: Container(

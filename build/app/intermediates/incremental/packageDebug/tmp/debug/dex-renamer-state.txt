@@ -1,0 +1,4 @@
+#Fri Jul 02 07:49:30 WIB 2021
+base.0=/Users/fathulazis/Documents/PROJECT/rumah_singgah/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex

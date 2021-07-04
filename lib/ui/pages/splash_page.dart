@@ -8,14 +8,13 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-          bottom: false,
-          child: Stack(
-            children: [
-              _splashIntro(context),
-              _splashImage(),
-            ],
-          )),
+      backgroundColor: whiteColor,
+      body: Stack(
+        children: [
+          _splashImage(),
+          _splashIntro(context),
+        ],
+      ),
     );
   }
 
