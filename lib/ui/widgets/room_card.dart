@@ -10,6 +10,13 @@ class RoomCard extends StatelessWidget {
   final String? city;
   final String? country;
   final int? rating;
+  final String? address;
+  final String? phone;
+  final String? mapUrl;
+  final List? photos;
+  final int? numberOfKitchen;
+  final int? numberOfBedrooms;
+  final int? numberOfCupboards;
 
   const RoomCard({
     Key? key,
@@ -20,6 +27,13 @@ class RoomCard extends StatelessWidget {
     this.city,
     this.country,
     this.rating,
+    this.address,
+    this.phone,
+    this.mapUrl,
+    this.photos,
+    this.numberOfKitchen,
+    this.numberOfBedrooms,
+    this.numberOfCupboards,
   }) : super(key: key);
 
   @override
@@ -28,7 +42,20 @@ class RoomCard extends StatelessWidget {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => DetailRoomPage()),
+          MaterialPageRoute(
+              builder: (context) => DetailRoomPage(
+                    name: name,
+                    imageUrl: imageUrl,
+                    price: price,
+                    numberOfBedrooms: numberOfBedrooms,
+                    numberOfKitchen: numberOfKitchen,
+                    numberOfCupboards: numberOfCupboards,
+                    rating: rating,
+                    address: address,
+                    mapUrl: mapUrl,
+                    phone: phone,
+                    photos: photos,
+                  )),
         );
       },
       child: Row(

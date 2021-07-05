@@ -5,6 +5,9 @@ class AssetsImage {
   static String imageCity1 = 'assets/images/city1.png';
   static String imageCity2 = 'assets/images/city2.png';
   static String imageCity3 = 'assets/images/city3.png';
+  static String imageCity4 = 'assets/images/city4.png';
+  static String imageCity5 = 'assets/images/city5.png';
+  static String imageCity6 = 'assets/images/city6.png';
   static String imageTips1 = 'assets/images/tips1.png';
   static String imageTips2 = 'assets/images/tips2.png';
   static String imageRoom1 = 'assets/images/room1.png';
@@ -20,6 +23,7 @@ class AssetsImage {
 
 class AssetsIcon {
   static String iconStar = 'assets/icons/icon_star.png';
+  static String iconStarGrey = 'assets/icons/icon_star_grey.png';
   static String iconBedroom = 'assets/icons/icon_bedroom.png';
   static String iconCupboard = 'assets/icons/icon_cupboard.png';
   static String iconKitchen = 'assets/icons/icon_kitchen.png';

@@ -47,7 +47,7 @@ class Room {
     phone = json['phone'];
     photos = json['photos'];
     mapUrl = json['map_url'];
-    numberOfKitchen = json['number_of_kitchen'];
+    numberOfKitchen = json['number_of_kitchens'];
     numberOfBedrooms = json['number_of_bedrooms'];
     numberOfCupboards = json['number_of_cupboards'];
   }

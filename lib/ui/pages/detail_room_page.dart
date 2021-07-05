@@ -1,10 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:rumah_singgah/shared/shared.dart';
 import 'package:rumah_singgah/ui/widgets/facilities_item.dart';
+import 'package:rumah_singgah/ui/widgets/rating_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DetailRoomPage extends StatelessWidget {
-  const DetailRoomPage({Key? key}) : super(key: key);
+  final String? name;
+  final int? price;
+  final String? imageUrl;
+  final int? rating;
+  final String? address;
+  final String? phone;
+  final String? mapUrl;
+  final List? photos;
+  final int? numberOfKitchen;
+  final int? numberOfBedrooms;
+  final int? numberOfCupboards;
+
+  const DetailRoomPage({
+    this.name,
+    this.price,
+    this.imageUrl,
+    this.rating,
+    this.address,
+    this.phone,
+    this.mapUrl,
+    this.photos,
+    this.numberOfKitchen,
+    this.numberOfBedrooms,
+    this.numberOfCupboards,
+    Key? key,
+  }) : super(key: key);
 
   launchURL(String url) async {
     if (await canLaunch(url)) {
@@ -31,10 +57,10 @@ class DetailRoomPage extends StatelessWidget {
   Widget _buildHeader(BuildContext context) {
     return Stack(
       children: [
-        Image.asset(
-          AssetsImage.imageBannerDetail1,
+        Image.network(
+          imageUrl ?? '',
           width: double.infinity,
-          height: 350,
+          height: 400,
           fit: BoxFit.cover,
         ),
       ],
@@ -63,7 +89,7 @@ class DetailRoomPage extends StatelessWidget {
     return ListView(
       children: [
         Container(
-          margin: EdgeInsets.only(top: 280),
+          margin: EdgeInsets.only(top: 320),
           width: double.infinity,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
@@ -88,8 +114,8 @@ class DetailRoomPage extends StatelessWidget {
     return Column(
       children: [
         Container(
-          margin: EdgeInsets.only(top: 10, left: 100, right: 100),
-          width: double.infinity,
+          margin: EdgeInsets.only(top: 10),
+          width: 80,
           height: 4,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(20),
@@ -106,13 +132,13 @@ class DetailRoomPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Kuretakeso Hott',
+                    name ?? '',
                     style: blackTextStyle.copyWith(fontSize: 22),
                   ),
                   SizedBox(height: 2),
                   Text.rich(
                     TextSpan(
-                        text: '\$52',
+                        text: '\$$price',
                         style: purpleTextStyle.copyWith(fontSize: 16),
                         children: [
                           TextSpan(
@@ -123,17 +149,15 @@ class DetailRoomPage extends StatelessWidget {
                 ],
               ),
               Row(
-                children: [
-                  Image.asset(AssetsIcon.iconStar, width: 20),
-                  SizedBox(width: 2),
-                  Image.asset(AssetsIcon.iconStar, width: 20),
-                  SizedBox(width: 2),
-                  Image.asset(AssetsIcon.iconStar, width: 20),
-                  SizedBox(width: 2),
-                  Image.asset(AssetsIcon.iconStar, width: 20),
-                  SizedBox(width: 2),
-                  Image.asset(AssetsIcon.iconStar, width: 20, color: greyColor),
-                ],
+                children: [1, 2, 3, 4, 5].map((index) {
+                  return Container(
+                    margin: EdgeInsets.only(left: 2),
+                    child: RatingItem(
+                      index: index,
+                      rating: rating,
+                    ),
+                  );
+                }).toList(),
               )
             ],
           ),
@@ -161,17 +185,17 @@ class DetailRoomPage extends StatelessWidget {
               FacilitiesItem(
                 facilitiesName: 'kitchen',
                 icon: AssetsIcon.iconKitchen,
-                total: 2,
+                total: numberOfKitchen,
               ),
               FacilitiesItem(
                 facilitiesName: 'bedroom',
                 icon: AssetsIcon.iconBedroom,
-                total: 3,
+                total: numberOfBedrooms,
               ),
               FacilitiesItem(
                 facilitiesName: 'cupboard',
                 icon: AssetsIcon.iconCupboard,
-                total: 3,
+                total: numberOfCupboards,
               ),
             ],
           ),
@@ -194,30 +218,20 @@ class DetailRoomPage extends StatelessWidget {
           height: 88,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: [
-              SizedBox(width: defaultMargin),
-              Image.asset(
-                AssetsImage.imageDetailRoom1,
-                width: 110,
-                height: 88,
-                fit: BoxFit.cover,
-              ),
-              SizedBox(width: 18),
-              Image.asset(
-                AssetsImage.imageDetailRoom1,
-                width: 110,
-                height: 88,
-                fit: BoxFit.cover,
-              ),
-              SizedBox(width: 18),
-              Image.asset(
-                AssetsImage.imageDetailRoom1,
-                width: 110,
-                height: 88,
-                fit: BoxFit.cover,
-              ),
-              SizedBox(width: defaultMargin),
-            ],
+            children: photos!.map((item) {
+              return Container(
+                margin: EdgeInsets.only(left: 24),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: Image.network(
+                    item,
+                    width: 110,
+                    height: 88,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              );
+            }).toList(),
           ),
         ),
         SizedBox(height: 30),
@@ -242,12 +256,12 @@ class DetailRoomPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Jln. Jendral Sudirman No.24\nJakarta',
+                address ?? '',
                 style: greyTextStyle.copyWith(fontSize: 14),
               ),
               InkWell(
                   onTap: () {
-                    launchURL('https:goo.gl/maps/SyZx2yjWB1yR6AeH8');
+                    launchURL('$mapUrl');
                   },
                   child: Image.asset(AssetsButton.buttonMap, width: 40))
             ],
@@ -267,7 +281,7 @@ class DetailRoomPage extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: defaultMargin),
           child: ElevatedButton(
             onPressed: () {
-              launchURL('https://wa.me/6281330331236');
+              launchURL('https://wa.me/$phone');
             },
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(purpleColor),
