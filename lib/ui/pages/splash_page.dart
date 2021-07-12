@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rumah_singgah/shared/shared.dart';
-import 'package:rumah_singgah/ui/pages/home_page.dart';
+import 'package:rumah_singgah/ui/pages/main_page.dart';
 
 class SplashPage extends StatelessWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -47,8 +47,10 @@ class SplashPage extends StatelessWidget {
             height: 50,
             child: ElevatedButton(
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => HomePage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => MainPage(initialPage: 0)));
               },
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(purpleColor),

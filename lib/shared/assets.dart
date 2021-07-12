@@ -41,4 +41,5 @@ class AssetsButton {
   static String buttonBack = 'assets/buttons/btn_back.png';
   static String buttonMap = 'assets/buttons/btn_map.png';
   static String buttonWishlist = 'assets/buttons/btn_wishlist.png';
+  static String buttonWishlistActive = 'assets/buttons/btn_wishlist_active.png';
 }

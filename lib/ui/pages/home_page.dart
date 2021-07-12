@@ -3,7 +3,6 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:rumah_singgah/providers/room_provider.dart';
 import 'package:rumah_singgah/shared/shared.dart';
-import 'package:rumah_singgah/ui/widgets/bottom_navbar_item.dart';
 import 'package:rumah_singgah/ui/widgets/city_card.dart';
 import 'package:rumah_singgah/ui/widgets/room_card.dart';
 import 'package:rumah_singgah/ui/widgets/tips_card.dart';
@@ -13,21 +12,17 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: whiteColor,
-      body: Stack(
-        children: [
-          ListView(
-            children: [
-              _buildHeader(context),
-              _buildPopularCities(context),
-              _buildRecomendedRoom(context),
-              _buildTipsAndGuidance(context),
-            ],
-          ),
-          _buildBottomNavbar(context),
-        ],
-      ),
+    return Stack(
+      children: [
+        ListView(
+          children: [
+            _buildHeader(context),
+            _buildPopularCities(context),
+            _buildRecomendedRoom(context),
+            _buildTipsAndGuidance(context),
+          ],
+        ),
+      ],
     );
   }
 
@@ -200,45 +195,6 @@ class HomePage extends StatelessWidget {
           ),
           SizedBox(height: 100)
         ],
-      ),
-    );
-  }
-
-  Widget _buildBottomNavbar(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 25),
-        child: Container(
-          height: 65,
-          width: double.infinity,
-          margin: EdgeInsets.symmetric(horizontal: defaultMargin),
-          decoration: BoxDecoration(
-            color: Color(0xFFF6F7F8),
-            borderRadius: BorderRadius.circular(23),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              BottomNavbarItem(
-                imageUrl: AssetsIcon.iconHome,
-                isActive: true,
-              ),
-              BottomNavbarItem(
-                imageUrl: AssetsIcon.iconMessageInactive,
-                isActive: false,
-              ),
-              BottomNavbarItem(
-                imageUrl: AssetsIcon.iconCardInactive,
-                isActive: false,
-              ),
-              BottomNavbarItem(
-                imageUrl: AssetsIcon.iconFavoriteInactive,
-                isActive: false,
-              )
-            ],
-          ),
-        ),
       ),
     );
   }

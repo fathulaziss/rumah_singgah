@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:rumah_singgah/shared/shared.dart';
 import 'package:rumah_singgah/ui/widgets/facilities_item.dart';
 import 'package:rumah_singgah/ui/widgets/rating_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DetailRoomPage extends StatelessWidget {
+class DetailRoomPage extends StatefulWidget {
   final String? name;
   final int? price;
   final String? imageUrl;
@@ -32,6 +33,13 @@ class DetailRoomPage extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  @override
+  _DetailRoomPageState createState() => _DetailRoomPageState();
+}
+
+class _DetailRoomPageState extends State<DetailRoomPage> {
+  bool isFavorite = false;
+
   launchURL(String url) async {
     if (await canLaunch(url)) {
       launch(url);
@@ -42,6 +50,11 @@ class DetailRoomPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.white,
+      systemNavigationBarDividerColor: Colors.white,
+    ));
     return Scaffold(
       backgroundColor: whiteColor,
       body: Stack(
@@ -58,7 +71,7 @@ class DetailRoomPage extends StatelessWidget {
     return Stack(
       children: [
         Image.network(
-          imageUrl ?? '',
+          widget.imageUrl ?? '',
           width: double.infinity,
           height: 400,
           fit: BoxFit.cover,
@@ -79,7 +92,15 @@ class DetailRoomPage extends StatelessWidget {
                 Navigator.pop(context);
               },
               child: Image.asset(AssetsButton.buttonBack, width: 40)),
-          Image.asset(AssetsButton.buttonWishlist, width: 40),
+          InkWell(
+              onTap: () {
+                setState(() {
+                  isFavorite = !isFavorite;
+                });
+              },
+              child: (isFavorite == true)
+                  ? Image.asset(AssetsButton.buttonWishlistActive, width: 40)
+                  : Image.asset(AssetsButton.buttonWishlist, width: 40)),
         ],
       ),
     );
@@ -132,13 +153,13 @@ class DetailRoomPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name ?? '',
+                    widget.name ?? '',
                     style: blackTextStyle.copyWith(fontSize: 22),
                   ),
                   SizedBox(height: 2),
                   Text.rich(
                     TextSpan(
-                        text: '\$$price',
+                        text: '\$${widget.price}',
                         style: purpleTextStyle.copyWith(fontSize: 16),
                         children: [
                           TextSpan(
@@ -154,7 +175,7 @@ class DetailRoomPage extends StatelessWidget {
                     margin: EdgeInsets.only(left: 2),
                     child: RatingItem(
                       index: index,
-                      rating: rating,
+                      rating: widget.rating,
                     ),
                   );
                 }).toList(),
@@ -185,17 +206,17 @@ class DetailRoomPage extends StatelessWidget {
               FacilitiesItem(
                 facilitiesName: 'kitchen',
                 icon: AssetsIcon.iconKitchen,
-                total: numberOfKitchen,
+                total: widget.numberOfKitchen,
               ),
               FacilitiesItem(
                 facilitiesName: 'bedroom',
                 icon: AssetsIcon.iconBedroom,
-                total: numberOfBedrooms,
+                total: widget.numberOfBedrooms,
               ),
               FacilitiesItem(
                 facilitiesName: 'cupboard',
                 icon: AssetsIcon.iconCupboard,
-                total: numberOfCupboards,
+                total: widget.numberOfCupboards,
               ),
             ],
           ),
@@ -218,7 +239,7 @@ class DetailRoomPage extends StatelessWidget {
           height: 88,
           child: ListView(
             scrollDirection: Axis.horizontal,
-            children: photos!.map((item) {
+            children: widget.photos!.map((item) {
               return Container(
                 margin: EdgeInsets.only(left: 24),
                 child: ClipRRect(
@@ -256,12 +277,12 @@ class DetailRoomPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                address ?? '',
+                widget.address ?? '',
                 style: greyTextStyle.copyWith(fontSize: 14),
               ),
               InkWell(
                   onTap: () {
-                    launchURL('$mapUrl');
+                    launchURL('${widget.mapUrl}');
                   },
                   child: Image.asset(AssetsButton.buttonMap, width: 40))
             ],
@@ -281,7 +302,7 @@ class DetailRoomPage extends StatelessWidget {
           margin: EdgeInsets.symmetric(horizontal: defaultMargin),
           child: ElevatedButton(
             onPressed: () {
-              launchURL('https://wa.me/$phone');
+              launchURL('https://wa.me/${widget.phone}');
             },
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(purpleColor),
