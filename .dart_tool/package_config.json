@@ -9,7 +9,7 @@
     },
     {
       "name": "args",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/args-2.0.0",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/args-2.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -87,7 +87,7 @@
     },
     {
       "name": "flutter_launcher_icons",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.9.0",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.9.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -171,13 +171,13 @@
     },
     {
       "name": "path_provider_linux",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.0.0",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-2.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "path_provider_macos",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.0",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -189,7 +189,7 @@
     },
     {
       "name": "path_provider_windows",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.1",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-2.0.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -213,13 +213,13 @@
     },
     {
       "name": "plugin_platform_interface",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.0.0",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/plugin_platform_interface-2.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "process",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.1",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/process-4.2.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -279,37 +279,37 @@
     },
     {
       "name": "url_launcher",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-6.0.8",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher-6.0.9",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "url_launcher_linux",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_linux-2.0.0",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_linux-2.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "url_launcher_macos",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-2.0.0",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-2.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "url_launcher_platform_interface",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_platform_interface-2.0.3",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_platform_interface-2.0.4",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "url_launcher_web",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-2.0.1",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_web-2.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "url_launcher_windows",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_windows-2.0.0",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_windows-2.0.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -321,7 +321,7 @@
     },
     {
       "name": "win32",
-      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.2.4",
+      "rootUri": "file:///Users/fathulazis/Development/flutter/.pub-cache/hosted/pub.dartlang.org/win32-2.2.5",
       "packageUri": "lib/",
       "languageVersion": "2.13"
     },
@@ -350,7 +350,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-07-05T00:36:12.477464Z",
+  "generated": "2021-07-28T04:32:23.248202Z",
   "generator": "pub",
   "generatorVersion": "2.13.3"
 }

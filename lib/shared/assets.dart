@@ -19,6 +19,7 @@ class AssetsImage {
   static String imageBannerDetail1 = 'assets/images/banner_detail1.png';
   static String imageBannerDetail2 = 'assets/images/banner_detail2.png';
   static String imageBannerDetail3 = 'assets/images/banner_detail3.png';
+  static String imageComingSoon = 'assets/images/comingsoon.png';
 }
 
 class AssetsIcon {

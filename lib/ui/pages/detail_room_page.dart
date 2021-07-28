@@ -302,7 +302,7 @@ class _DetailRoomPageState extends State<DetailRoomPage> {
           margin: EdgeInsets.symmetric(horizontal: defaultMargin),
           child: ElevatedButton(
             onPressed: () {
-              launchURL('https://wa.me/${widget.phone}');
+              launchURL('https://wa.me/6281230832549');
             },
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(purpleColor),
